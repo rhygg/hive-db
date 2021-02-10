@@ -1,0 +1,31 @@
+{
+  "name": "hive-db",
+  "version": "2.0.7",
+  "description": "A peristant database for impressive storage and easy functionality",
+  "main": "index.js",
+  "homepage": "https://hive-db.gitbook.io/docs/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "database",
+    "discord",
+    "hive-db",
+    "hive",
+    "db",
+    "discord.js",
+    "discord database",
+    "mongo",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "Adonis Woah <rudimemtaryofficial@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "better-sqlite3": "^7.1.2",
+    "chalk": "^4.1.0",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.15"
+  }
+}
