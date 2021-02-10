@@ -1,9 +1,11 @@
 
+
 const Base = require("./base");
 const Schema = require("./schema");
 const Error = require("./err");
 const fs = require("fs");
 const Util = require("./util");
+const chalk = require('chalk');
 
 class db extends Base {
 
@@ -57,7 +59,7 @@ class db extends Base {
   /**
    * @param {string} key
   */
-  async delete(key) {
+  async del(key) {
       if (!Util.isKey(key)) throw new Error("Invalid key specified!", "KeyError");
       const parsed = Util.parseKey(key);
       const raw = await this.schema.findOne({ ID: parsed.key });
@@ -153,8 +155,8 @@ class db extends Base {
   async fetchAll(limit) {
       return await this.all(limit);
   }
-  async deleteAll() {
-      this.emit("debug", "Deleting everything from the database...");
+  async delAll() {
+      this.emit(chalk.red("debug", "Deleting everything from the database..."));
       await this.schema.deleteMany().catch(e => {});
       return true;
   }
