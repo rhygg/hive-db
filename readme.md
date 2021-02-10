@@ -1,6 +1,7 @@
 ![hive-db](https://media.discordapp.net/attachments/790866153316679680/807265892408623104/0001-16485206787_20210205_203508_0000-removebg-preview.png?width=455&height=455)
 ## ChangeLog
 **Hive-db now has interactions based on the adapter you choose, so that you can swiftly use the whole module!**
+[Wiki for an in-dept guide](https://github.com/Rhydderchc/hive-db/wiki)
 
 # Hive-db
 
