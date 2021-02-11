@@ -10,7 +10,7 @@ client.on('ready',() =>{
 console.log(chalk.yellow('I\'m ready'));
 })
 client.on('message', () =>{
-db.set(`prefix_${message.guild.id}`,'!'); // you can also put message.author.id if you want the prefix to be user specific.
+db.init(`prefix_${message.guild.id}`,'!'); // you can also put message.author.id if you want the prefix to be user specific.
 if(message.author.bot) return;
 if(!message.guild) return;
 const args = message.content.slice(prefix.length).trim().split(' ');;
@@ -21,7 +21,7 @@ message.channel.send('Pong');
 }
 if(message.content === `${prefix}setprefix`){
 message.channel.send(`prefix changed to ${args[0]}`);
-db.set(`prefix_${message.guild.id}`, args[0]);
+db.init(`prefix_${message.guild.id}`, args[0]);
 }
 /* Note,
 you can add other types of condition if you want, for example permissions, and argument
