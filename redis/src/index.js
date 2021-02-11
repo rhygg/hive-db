@@ -8,7 +8,7 @@ module.exports = {
     createClient(...args) {
         const client = redis.createClient(...args);
         client.$get = promisify(client.get).bind(client);
-        client.$set = promisify(client.set).bind(client);
+        client.$set = promisify(client.init).bind(client);
         client.$delete = promisify(client.del).bind(client);
 
         client.get = async function(key) {
@@ -21,7 +21,7 @@ module.exports = {
             return typeof value === 'undefined' ? null : value;
         };
 
-        client.set = async function(key, value) {
+        client.init = async function(key, value) {
             var $value = value;
             const $split = key.split('.');
             key = $split.shift();
@@ -51,7 +51,7 @@ module.exports = {
             var $current = await this.get(key);
             if ($current === null) $current = 0;
             if (typeof $current !== 'number') throw new TypeError(`Value of ${key} is not a number!`);
-            return this.set(key, $current += number);
+            return this.init(key, $current += number);
         };
 
         client.subtract = async function(key, number) {
