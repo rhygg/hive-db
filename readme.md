@@ -206,3 +206,8 @@ db.get("something");
 
 ## [BytesToBits](https://discord.gg/bbPmhMMSyC)
 ![Bytes To Bits](https://media.discordapp.net/attachments/774822256559915048/807614306623553546/BTBLogoColoredHead.png)
+
+# Reminder
+The hive-db github repository is the development verision of hive-db.
+## Also
+Check the [wiki](https://github.com/Rhydderchc/hive-db/wiki) for a guide.
