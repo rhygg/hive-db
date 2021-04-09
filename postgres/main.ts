@@ -1,1 +1,1 @@
-export { HivePg, HivePgOptions} from './index.ts'
+export { hivePg, hivePgOptions} from './index.ts'
