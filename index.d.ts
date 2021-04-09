@@ -1,4 +1,4 @@
-declare module 'lemondb' {
+declare module 'hive-db' {
     export interface Options {
         target?: string | null;
         table?: string;
