@@ -1,9 +1,9 @@
 import { Pool, PoolConfig, QueryResultRow, QueryResult } from "pg";
 
-export interface PGOptions {
+export interface hivePgOptions {
   table: string
 }
-export class HivePg {
+export class hivePg {
   public pool: Pool;
   public options: QuickPGOptions;
   constructor(config: PoolConfig, options: HivePgOptions = { table: 'json' }) {
