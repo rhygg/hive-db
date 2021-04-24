@@ -114,7 +114,7 @@ module.exports = {
      * @returns {data} the updated data.
      */
 
-    input: function (key, value, ops) {
+    push: function (key, value, ops) {
         if (!key)
         throw new TypeError(chalk.red(
             "No key specified. Confused? Check Out: https://discord.gg/RTH79cwxxp")
@@ -290,7 +290,7 @@ module.exports = {
             );
         };
 
-        this.input = function (key, value, ops) {
+        this.push = function (key, value, ops) {
             if (!key)
             throw new TypeError(chalk.red(
                 "No key specified. Confused? Check Out: https://discord.gg/RTH79cwxxp")
@@ -342,11 +342,11 @@ module.exports = {
             );
         };
 
-        this.all = function (ops) {
+        this.fetchArray = function (ops) {
             return arbitrate("array", { ops: ops || {} }, this.tableName);
         };
 
-        this.array = function (ops) {
+        this.fetchArray = function (ops) {
             return arbitrate("all", { ops: ops || {} }, this.tableName);
         };
     },
