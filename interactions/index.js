@@ -1,4 +1,8 @@
+const { Postgres } = require('../postgres/main')
+
 module.exports=({
-  mongo: require("../mongo/index.js"),
-  sqlite:require("../sqlite/src/index.js")
+  Postgres,
+  sqlite: require('../sqlite/src/index'),
+  mongo: require('../mongo/index')
 })
+
