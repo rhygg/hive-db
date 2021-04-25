@@ -10,6 +10,7 @@
 ### Adapters
 1. `mongodb -> hive.mongo`
 2. `sqlite -> hive.sqlite`
+3. `postgres -> hive.Postgres`
 
 ### An example of how it looks!
 ```js
@@ -79,7 +80,7 @@ db.del('name')
 ```
 4. Input an element into an array value.
 ```js
-db.input('name','Tensor')
+db.push('name','Tensor')
 ```
 5. Subtract a numeric value from a key storing a numeric value
 ```js
@@ -91,9 +92,9 @@ db.subtract('age',1)
 db.add('age',1)
 // Adding 1 to 21, where age(key) contains -> 21
 ```
-7. Fetching all elements in an Array
+7. Fetching all elements as an array
 ```js
-db.array('name')
+db.fetchArray('name')
 // output => Tensor, Lason
 ```
 8. Checks if a key stores a `value` or is `null`
@@ -132,8 +133,7 @@ async function test() {
 Creating Tables using hive-db mongo interaction!
 ```js
 const db = require('hive-db');
-const {database} = db.mongo;
-const mongo= new database("mongodb+srv://wyvern:thebestbot@cluster0.67lsz.mongodb.net", "JSON", { useUnique: true });
+const mongo= new db.Mongo("mongodb+srv://wyvern:thebestbot@cluster0.67lsz.mongodb.net", "JSON", { useUnique: true });
 mongo.on("ready", () => {
     console.log(`Connected!`);
     test();
@@ -163,7 +163,7 @@ mongo.get("foo").then(console.log);
 ```
 Input a value into an existing array.
 ```js
-mongo.input("name");
+mongo.push("name");
 // assuming that the key name has an array, for example ["Lason", "Tensor"]
 ```
 Add a value to a data(number) in a key
@@ -198,7 +198,69 @@ Hive-db understands this without any external effort, and you don't even have to
 db.get("something");
 //-> give you something as the output!
 ```
+# Postgres Methods
 
+Yes **hive-db** offers postgres interaction! Isn't that super cool!
+
+Connecting to the postgres pool:
+```js
+{Postgres} = require('hive-db');
+const db = new Postgres({
+   host: 'localhost',
+  user: 'postgres',
+  password: '1234',
+  database: 'myDatabase'
+})
+/*
+Basic paradigm
+new Postgres({
+  config options, 
+  table
+})
+*/
+```
+**Create new schemas using the postgres pool!**
+
+```js
+{Postgres} = require('hive-db');
+const db = new Postgres({
+   host: 'localhost',
+  user: 'postgres',
+  password: '1234',
+  database: 'myDatabase'
+}, {
+  schema:'people' //schema name
+})
+
+```
+
+**get data**
+```js
+await db.get('peope')
+```
+**init data**
+```js
+await db.init('people', 'Jack');
+```
+**delete data**
+```js
+await db.del('people', 'Lason');
+```
+**push data into an array**
+
+```js
+await db.push('people', 'Tensor');
+```
+**Fetch data as an array!**
+```js
+await db.fetchArray('people');
+// output => [Jack, Tensor]
+```
+**Search for a value in a key**
+```js
+await db.search('people','Tensor')
+// output => true
+```
 
 ## [Support Server](https://discord.gg/RTh79cwxxp) | [Documentation](https://hive-db.gitbook.io/docs/)
 
