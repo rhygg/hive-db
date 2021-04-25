@@ -8,7 +8,7 @@
 ### Hive-db is a persistent modular database to store data with ease, rather than complex structures.
 
 ### Adapters
-1. `mongodb -> hive.mongo`
+1. `mongodb -> hive.Mongo`
 2. `sqlite -> hive.sqlite`
 3. `postgres -> hive.Postgres`
 
@@ -111,10 +111,8 @@ db.datatype('age')
 You can use both localhost and MongoDb altas uri's to connect to mongodb.
 Here is an example of its support:-
 ```js
-const db = require('hive-db');
-// Point to be noted, database is a constructor under db.mongo
-const {database} = db.mongo;
-const mongo= new database("mongodb+srv://wyvern:thebestbot@cluster0.67lsz.mongodb.net", "JSON", { useUnique: true });
+const hive = require('hive-db');
+const mongo= new hive.Mongo("mongodb+srv://wyvern:thebestbot@cluster0.67lsz.mongodb.net", "JSON", { useUnique: true });
 mongo.on("ready", () => {
     console.log(`Connected!`);
     test();
