@@ -301,13 +301,11 @@ class db extends Base {
           }
       });
   }
-  disconnect() {
-      this.emit("debug", "'database.disconnect()' was called, destroying the process...");
-      return this._destroyDatabase();
-  }
-  connect(url) {
-      return this._create(url);
-  }
+  /*
+  Connections will only occur in constructor, no more seperate methods.
+  connects() depricated
+  disconnect() will be manufactured.
+  */
   get name() {
       return this.schema.modelName;
   }
