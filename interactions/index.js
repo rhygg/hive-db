@@ -1,4 +1,4 @@
-const { Postgres } = require('../postgres/main')
+const { Postgres } = require('../postgres/dist/main')
 const {Database} = require('../mongo/index')
 module.exports=({
   Postgres,
